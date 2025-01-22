@@ -1,4 +1,4 @@
-const posts = require("../models/examples");
+import connection from "../connection.js"
 
 function index(req, res) {
     const response = {
@@ -17,7 +17,7 @@ function show(req, res) {
     res.json({ success: true, item });
 }
 
-function store(req, res) {
+/* function store(req, res) {
     let newId = 0;
     for (let i = 0; i < menubar.length; i++) {
         if (blog[i].id > newId) {
@@ -31,9 +31,9 @@ function store(req, res) {
     };
     posts.push(newItem);
     res.status(201).json(newItem);
-};
+}; */
 
-function update(req, res) {
+/* function update(req, res) {
     const id = parseInt(req.params.id);
     const item = posts.find((item) => item.id === id);
     if (!item) {
@@ -46,7 +46,7 @@ function update(req, res) {
         }
     }
     res.json(item);
-};
+}; */
 
 function destroy(req, res) {
     const id = parseInt(req.params.id);
@@ -59,4 +59,4 @@ function destroy(req, res) {
     }
 }
 
-module.exports = { index, show, store, update, destroy };
+export { index, show, destroy };

@@ -1,7 +1,7 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const { index, show, store, update, destroy } = require("controllers");
+import { index, show, destroy } from "../controllers/exampleController.js";
 
 //Rotte
 
@@ -12,10 +12,10 @@ router.get("/", index);
 router.get("/:id", show);
 
 //Store - Create
-router.post("/:id", store);
+//router.post("/:id", store);
 
 //Update - Update totale
-router.put("/:id", update);
+//router.put("/:id", update);
 
 //Modify - Update partial
 // router.patch("/:id", (req, res) => {
@@ -23,6 +23,6 @@ router.put("/:id", update);
 // });
 
 //Destroy - Delete
-router.get("/:id", destroy);
+router.delete("/:id", destroy);
 
-module.exports = router;
+export default router;

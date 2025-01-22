@@ -1,12 +1,13 @@
-const express = require("express"); //creo un'istanza di express
+import express from 'express'; //creo un'istanza di express
+import 'dotenv/config' // Abilitiamo i file .env di configurazione
 const app = express(); //creo un'istanza del server
 const port = process.env.PORT || 3000; // set costant to port
 
 //Other imports
-const errorsHandler = require("./middlewares/errorsHandles");
-const notFound = require("./middlewares/notFound");
-const corsPolicy = require("./middlewares/corsPolicy");
-const exampleRouter = require("./routers/examples");
+import errorsHandler from "./middlewares/errorsHandles.js";
+import notFound from "./middlewares/notFound.js";
+import corsPolicy from "./middlewares/corsPolicy.js";
+import exampleRouter from "./routers/examples.js";
 
 app.use(express.static("public"));
 

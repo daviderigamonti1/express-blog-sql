@@ -7,4 +7,4 @@ function errorsHandles(err, req, res, next) {
     });
 }
 
-module.exports = errorsHandles;
+export default errorsHandles;
