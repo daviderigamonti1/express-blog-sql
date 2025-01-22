@@ -50,14 +50,12 @@ function show(req, res) {
 }; */
 
 function destroy(req, res) {
-    const id = parseInt(req.params.id);
-    const index = posts.findIndex((item) => item.id === id);
-    if (index !== -1) {
-        blog.splice(index, 1);
-        res.sendStatus(204);
-    } else {
-        throw new CustomError("L'elemento non esiste", 404);
-    }
+    const { id } = req.params;
+    const sql = 'DELETE FROM posts WHERE id = ?';
+    connection.query(sql, [id], (err) => {
+        if (err) return res.status(500).json({ error: 'Failed to delete post' });
+        res.sendStatus(204)
+    });
 }
 
 export { index, show, destroy };
